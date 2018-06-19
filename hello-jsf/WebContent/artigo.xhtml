@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<meta http-equiv="Content-Type" 
+			content="text/html; charset=UTF-8" />
+	<title>Artigo</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="4">
+			<h:outputLabel for="id" value="ID: " />
+			<h:inputText id="id" value="#{artigoBean.artigo.id}" />
+			<h:outputLabel></h:outputLabel>
+
+			<h:outputLabel for="titulo" value="Título: " />
+			<h:inputText id="titulo" value="#{artigoBean.artigo.titulo}" />
+			
+			<h:panelGroup>
+			<h:outputLabel for="autor" value="Autor: " />
+			<h:inputText id="autor" value="#{artigoBean.autor.nome}" />
+				
+			<h:outputLabel for="email" value="E-mail: " />
+			<h:inputText id="email" value="#{artigoBean.autor.email}" />
+			
+			<h:commandButton action="#{artigoBean.addLista()}" value="Adicionar Autor" />
+			</h:panelGroup>				
+			
+			
+			<h:dataTable  border="1"
+    			var="i" value="#{artigoBean.lista}">
+				<h:column>
+    				<h:outputText value="#{i}"/>
+    				
+    			</h:column>
+    		</h:dataTable>
+
+		</h:panelGrid>
+		<h:panelGrid columns="2">
+			<h:commandButton action="#{artigoBean.adicionar()}" value="Adicionar" />
+			<h:commandButton action="#{artigoBean.cancelar()}" value="Cancelar" />
+		</h:panelGrid>
+
+	</h:form>
+</h:body>
+</html>

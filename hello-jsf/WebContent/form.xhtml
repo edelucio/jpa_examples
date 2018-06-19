@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <meta http-equiv="Content-Type" 
+              content="text/html; charset=UTF-8" />
+    </h:head>
+    <h:body>
+    	<h:form>
+    		<h:panelGrid columns="2">
+	    		<h:outputLabel for="username" value="Username:"/>
+	    		<h:inputText id="username" value="#{formBean.username}" />
+
+	    		<h:outputLabel for="password" value="Password:" />
+	    		<h:inputSecret id="password" value="#{formBean.password}" />
+
+	    		<h:outputLabel for="perfil" value="Perfil:" />
+	    		<h:inputTextarea id="perfil" value="#{formBean.perfil}" />
+
+		    	<h:outputLabel for="status" value="Bloqueado:" />
+	    		<h:selectBooleanCheckbox id="status" value="#{formBean.bloqueado}" />
+
+		    	<h:outputLabel for="disponibilidade" value="Disponibilidade:" />
+	    		<h:selectOneMenu 
+	    			id="disponibilidade" 
+	    			value="#{formBean.disponibilidade}">
+	    			<f:selectItem itemLabel="Manhã" itemValue="M" />
+	    			<f:selectItem itemLabel="Tarde" itemValue="T" />
+	    			<f:selectItem itemLabel="Noite" itemValue="N" />
+	    		</h:selectOneMenu>
+		    	<h:outputLabel for="disciplina" value="Disciplina:" />
+	    		<h:selectOneMenu id="disciplina">
+	    			<f:selectItems
+	    				value="#{formBean.disciplinas}"
+	    				var="disciplina" 
+	    				itemLabel="#{disciplina.nome}" 
+	    				itemValue="#{disciplina.id}" />
+	    		</h:selectOneMenu>
+		    	<h:outputLabel for="areas" value="Áreas de Interesse:" />
+	    		<h:selectManyCheckbox
+	    			id="areas"
+	    			layout="pageDirection">
+	    			<f:selectItem 
+	    				itemLabel="Desenvolvimento" 
+	    				itemValue="desenv" />
+	    			<f:selectItem 
+	    				itemLabel="Gestão de Projetos" 
+	    				itemValue="gestao" />	
+	    			<f:selectItem 
+	    				itemLabel="Redes de Computadores" 
+	    				itemValue="redes" />	
+	    		</h:selectManyCheckbox>
+		    	<h:outputLabel 
+		    		for="modalidade" value="Modalidade:" />
+	    		<h:selectOneRadio
+	    			id="modalidade"
+	    			layout="lineDirection">
+	    			<f:selectItem 
+	    				itemLabel="Doutorado" 
+	    				itemValue="doutorado" />
+	    			<f:selectItem 
+	    				itemLabel="Mestrado" 
+	    				itemValue="mestrado" />	
+	    			<f:selectItem 
+	    				itemLabel="Graduação" 
+	    				itemValue="graduação" />	
+	    		</h:selectOneRadio>
+		    	<h:outputLabel 
+		    		for="linguagens" value="Linguagens:" />
+	    		<h:selectOneListbox id="linguagens" size="3">
+	    			<f:selectItem 
+	    				itemLabel="Java" 
+	    				itemValue="java" />
+	    			<f:selectItem 
+	    				itemLabel="PHP" 
+	    				itemValue="php" />
+	    			<f:selectItem 
+	    				itemLabel="Python" 
+	    				itemValue="python" />
+	    			<f:selectItem 
+	    				itemLabel="Ruby" 
+	    				itemValue="ruby" />		
+	    			<f:selectItem 
+	    				itemLabel="C++" 
+	    				itemValue="cplusplus" />	
+	    		</h:selectOneListbox>
+	    	<h:outputLabel 
+		    		for="linguas" value="Línguas:" />
+	    		<h:selectManyListbox id="linguas" size="3">
+	    			<f:selectItem 
+	    				itemLabel="Inglês" 
+	    				itemValue="ingles" />
+	    			<f:selectItem 
+	    				itemLabel="Francês" 
+	    				itemValue="frances" />
+	    			<f:selectItem 
+	    				itemLabel="Holandês" 
+	    				itemValue="holandes" />
+	    			<f:selectItem 
+	    				itemLabel="Espanhol" 
+	    				itemValue="espanhol" />		
+	    			<f:selectItem 
+	    				itemLabel="Italiano" 
+	    				itemValue="italiano" />	
+	    		</h:selectManyListbox>
+	    	</h:panelGrid>	    	
+	    	<p>
+	    		<h:commandButton 
+	    			action="#{formBean.execute()}"
+	    			value="Enviar"/>
+	    	</p>
+
+    	</h:form>
+    </h:body>
+</html>

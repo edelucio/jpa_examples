@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <meta http-equiv="Content-Type" 
+              content="text/html; charset=UTF-8" />
+        <title>Facelets Template</title>
+    </h:head>
+    <h:body>
+    	<h:form>
+    		<h:commandLink action="produto" value="Novo"/>
+    		<h:dataTable 
+    			var="p" value="#{produtoBean.produtos}">
+    			<f:facet name="caption">Lista de Compras</f:facet>
+    			<h:column>
+    				<f:facet name="header">NOME</f:facet>
+    				<h:outputText rendered="#{not p.editavel}" value="#{p.nome}"/>
+    				<h:inputText  rendered="#{p.editavel}" value="#{p.nome}"/>
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">DESCRIÇÃO</f:facet>
+    				<h:outputText rendered="#{not p.editavel}" value="#{p.descricao}"/>
+    				<h:inputText  rendered="#{p.editavel}" value="#{p.descricao}"/>
+    				
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">PREÇO</f:facet>
+    				<h:outputText rendered="#{not p.editavel}" value="#{p.preco}"/>
+    				<h:inputText  rendered="#{p.editavel}" value="#{p.preco}"/>
+    				
+    			</h:column>	
+    			
+    			<h:column>
+    				<f:facet name="header">DESCONTO</f:facet>
+    				<h:outputText rendered="#{not p.editavel}" value="#{p.desconto}">
+    					<f:convertNumber type="percent"/>
+    				</h:outputText>
+    				<h:inputText  rendered="#{p.editavel}" value="#{p.desconto}">
+    					<f:convertNumber type="percent"/>
+    				</h:inputText>
+    				
+    			</h:column>	
+    			
+    			<h:column>
+    				<f:facet name="header">DATA DE FRABRICAÇÃO</f:facet>
+    				<h:outputText rendered="#{not p.editavel}" value="#{p.dataFabricacao.time}">
+    					<f:convertDateTime pattern="dd/MM/yyyy"/>
+    				</h:outputText>
+    				<h:inputText  rendered="#{p.editavel}" value="#{p.dataFabricacao.time}">
+    					<f:convertDateTime pattern="dd/MM/yyyy"/>
+    				</h:inputText>
+    				
+    				
+    			</h:column>	
+    			
+    			<h:column>
+    				<h:selectBooleanCheckbox value="#{p.editavel}"  onclick="submit()"/>
+    			</h:column>	
+    		</h:dataTable>
+    	</h:form>
+    </h:body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<meta http-equiv="Content-Type" 
+			content="text/html; charset=UTF-8" />
+	<title>Professor</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="3">
+			<h:outputLabel for="id" value="ID: " />
+			<h:inputText id="id" value="#{professorBean.professor.id}"
+				required="true" />
+			<h:outputLabel></h:outputLabel>
+
+			<h:outputLabel for="nome" value="Nome: " />
+			<h:inputText id="nome" value="#{professorBean.professor.nome}"
+				required="true" />
+			<h:outputLabel></h:outputLabel>
+			<h:outputLabel for="titulo" value="Título: " />
+			<h:inputText id="titulo" value="#{professorBean.professor.titulo}" />
+			<h:outputLabel></h:outputLabel>
+
+			<h:outputLabel for="areaInteresse" value="Área Interesse: " />
+			<h:inputText id="areaInteresse"
+				value="#{professorBean.areaInteresse}" />
+
+			<h:commandButton action="#{professorBean.addLista()}" value="+" />
+
+			<h:dataTable  border="1"
+    			var="i" value="#{professorBean.lista}">
+				<h:column>
+    				<h:outputText value="#{i}"/>
+    				
+    			</h:column>
+    		</h:dataTable>
+
+		</h:panelGrid>
+		<h:panelGrid columns="2">
+			<h:commandButton action="#{professorBean.adicionar()}" value="Adicionar" />
+			<h:commandButton action="#{professorBean.cancelar()}" value="Cancelar" />
+		</h:panelGrid>
+
+	</h:form>
+</h:body>
+</html>
